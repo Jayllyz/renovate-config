@@ -1,0 +1,38 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "timezone": "Europe/Paris",
+    "schedule": ["before 10am on monday"],
+    "extends": [
+        "config:recommended",
+        "customManagers:biomeVersions",
+        "group:allNonMajor"
+    ],
+    "automerge": false,
+    "postUpdateOptions": ["pnpmDedupe"],
+    "rangeStrategy": "bump",
+    "ignoreDeps": ["node"],
+    "customManagers": [
+      {
+        "customType": "regex",
+        "fileMatch": ["^rust-toolchain\\.toml?$"],
+        "matchStrings": [
+          "channel\\s*=\\s*\"(?<currentValue>\\d+\\.\\d+(\\.\\d+)?)\""
+        ],
+        "depNameTemplate": "rust",
+        "packageNameTemplate": "rust-lang/rust",
+        "datasourceTemplate": "github-releases"
+      }
+    ],
+    "packageRules": [
+      {
+        "groupName": "github-actions",
+        "matchManagers": ["github-actions"]
+      },
+      {
+        "groupName": "rust toolchain",
+        "matchManagers": ["custom.regex"],
+        "matchDepNames": ["rust"],
+        "schedule": ["at any time"]
+      }
+    ]
+  }
