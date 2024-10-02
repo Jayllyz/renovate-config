@@ -5,9 +5,19 @@
     "extends": [
         "config:recommended",
         "customManagers:biomeVersions",
-        "group:allNonMajor"
+        "group:allNonMajor",
+        ":semanticCommitType(chore)"
     ],
-    "automerge": false,
+    "automerge": true,
+    "major": {
+     "automerge": false
+    },
+    "lockFileMaintenance": {
+      "enabled": true,
+      "automerge": true,
+      "schedule": "before 10am on the first day of the month"
+    },
+    "dependencyDashboard": true,
     "postUpdateOptions": ["pnpmDedupe"],
     "rangeStrategy": "bump",
     "ignoreDeps": ["node"],
@@ -35,4 +45,4 @@
         "schedule": ["at any time"]
       }
     ]
-  }
+}
