@@ -9,13 +9,16 @@
         ":semanticCommitType(chore)"
     ],
     "automerge": true,
+    "automergeType": "pr",
     "major": {
      "automerge": false
     },
     "lockFileMaintenance": {
       "enabled": true,
       "automerge": true,
-      "schedule": "before 10am on the first day of the month"
+      "extends": [
+        "schedule:monthly"
+      ]
     },
     "dependencyDashboard": true,
     "postUpdateOptions": ["pnpmDedupe"],
