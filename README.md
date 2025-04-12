@@ -4,7 +4,7 @@ This repository uses [Renovate](https://docs.renovatebot.com/) for automated dep
 
 ## Main Features
 
-1. **Timezone and Schedule**: Set to Europe/Paris, running before 10am on Mondays.
+1. **Timezone and Schedule**: Set to Europe/Paris, running before 9am on Mondays.
 2. **Extended Configurations**: 
    - Uses recommended config
    - Custom manager for Biome versions (pin biome deps)
