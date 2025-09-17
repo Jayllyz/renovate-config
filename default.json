@@ -4,12 +4,14 @@
     "schedule": ["before 9am on monday"],
     "extends": [
         "config:recommended",
+        "helpers:pinGitHubActionDigestsToSemver",
         "customManagers:biomeVersions",
         "group:allNonMajor",
-        ":semanticCommitType(chore)"
+        ":enableVulnerabilityAlerts",
     ],
     "automerge": true,
     "automergeType": "pr",
+    "automergeSchedule": ["at any time"],
     "automergeStrategy": "squash",
     "major": {
      "automerge": false
@@ -40,7 +42,8 @@
     "packageRules": [
       {
         "groupName": "github-actions",
-        "matchManagers": ["github-actions"]
+        "matchManagers": ["github-actions"],
+        "rangeStrategy": "auto"
       },
       {
         "groupName": "rust toolchain",
