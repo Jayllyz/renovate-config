@@ -4,6 +4,7 @@
     "schedule": ["before 9am on monday"],
     "extends": [
         "config:recommended",
+        "github>OrbisK/renovate-config-e18e",
         "helpers:pinGitHubActionDigestsToSemver",
         "customManagers:biomeVersions",
         "group:allNonMajor",
