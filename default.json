@@ -1,59 +1,57 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "timezone": "Europe/Paris",
-    "schedule": ["before 9am on monday"],
-    "extends": [
-        "config:recommended",
-        "github>OrbisK/renovate-config-e18e:replacements",
-        "github>OrbisK/renovate-config-e18e:recommendation",
-        "github>OrbisK/renovate-config-e18e:abandonment",
-        "github>OrbisK/renovate-config-e18e:columns/community-notes",
-        "helpers:pinGitHubActionDigestsToSemver",
-        "customManagers:biomeVersions",
-        "group:allNonMajor",
-        ":enableVulnerabilityAlerts",
-    ],
-    "automerge": true,
-    "automergeType": "pr",
-    "automergeSchedule": ["at any time"],
-    "automergeStrategy": "squash",
-    "major": {
-     "automerge": false
-    },
-    "lockFileMaintenance": {
-      "enabled": true,
-      "automerge": true,
-      "extends": [
-        "schedule:monthly"
-      ]
-    },
-    "dependencyDashboard": true,
-    "postUpdateOptions": ["pnpmDedupe"],
-    "rangeStrategy": "bump",
-    "ignoreDeps": ["node"],
-    "customManagers": [
-      {
-        "customType": "regex",
-        "fileMatch": ["^rust-toolchain\\.toml?$"],
-        "matchStrings": [
-          "channel\\s*=\\s*\"(?<currentValue>\\d+\\.\\d+(\\.\\d+)?)\""
-        ],
-        "depNameTemplate": "rust",
-        "packageNameTemplate": "rust-lang/rust",
-        "datasourceTemplate": "github-releases"
-      }
-    ],
-    "packageRules": [
-      {
-        "groupName": "github-actions",
-        "matchManagers": ["github-actions"],
-        "rangeStrategy": "auto"
-      },
-      {
-        "groupName": "rust toolchain",
-        "matchManagers": ["custom.regex"],
-        "matchDepNames": ["rust"],
-        "schedule": ["at any time"]
-      }
-    ]
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"timezone": "Europe/Paris",
+	"schedule": ["before 9am on monday"],
+	"extends": [
+		"config:recommended",
+		"github>OrbisK/renovate-config-e18e:replacements",
+		"github>OrbisK/renovate-config-e18e:recommendation",
+		"github>OrbisK/renovate-config-e18e:abandonment",
+		"github>OrbisK/renovate-config-e18e:columns/community-notes",
+		"helpers:pinGitHubActionDigestsToSemver",
+		"customManagers:biomeVersions",
+		"group:allNonMajor",
+		":enableVulnerabilityAlerts"
+	],
+	"automerge": true,
+	"automergeType": "pr",
+	"automergeSchedule": ["at any time"],
+	"automergeStrategy": "squash",
+	"major": {
+		"automerge": false
+	},
+	"lockFileMaintenance": {
+		"enabled": true,
+		"automerge": true,
+		"extends": ["schedule:monthly"]
+	},
+	"dependencyDashboard": true,
+	"postUpdateOptions": ["pnpmDedupe"],
+	"rangeStrategy": "bump",
+	"ignoreDeps": ["node"],
+	"customManagers": [
+		{
+			"customType": "regex",
+			"fileMatch": ["^rust-toolchain\\.toml?$"],
+			"matchStrings": [
+				"channel\\s*=\\s*\"(?<currentValue>\\d+\\.\\d+(\\.\\d+)?)\""
+			],
+			"depNameTemplate": "rust",
+			"packageNameTemplate": "rust-lang/rust",
+			"datasourceTemplate": "github-releases"
+		}
+	],
+	"packageRules": [
+		{
+			"groupName": "github-actions",
+			"matchManagers": ["github-actions"],
+			"rangeStrategy": "auto"
+		},
+		{
+			"groupName": "rust toolchain",
+			"matchManagers": ["custom.regex"],
+			"matchDepNames": ["rust"],
+			"schedule": ["at any time"]
+		}
+	]
 }
