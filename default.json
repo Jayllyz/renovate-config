@@ -5,8 +5,9 @@
 	"extends": [
 		"config:recommended",
 		"github>OrbisK/renovate-config-e18e:replacements",
-		"github>OrbisK/renovate-config-e18e:recommendation",
+		"github>OrbisK/renovate-config-e18e:recommendations",
 		"github>OrbisK/renovate-config-e18e:abandonment",
+		"github>OrbisK/renovate-config-e18e:columns/community-notes",
 		"helpers:pinGitHubActionDigestsToSemver",
 		"customManagers:biomeVersions",
 		"group:allNonMajor",
